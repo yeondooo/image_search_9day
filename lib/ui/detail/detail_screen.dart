@@ -12,7 +12,13 @@ class DetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('디테일 페이지'),
       ),
-      body: Image.network('/'),
+      body: Hero(
+        tag: photo.id,
+        child: Image.network(
+          photo.url,
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 }
