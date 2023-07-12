@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_search_9day/data/model/photo.dart';
+import 'package:image_search_9day/data/repository/pixabay_photo_repository_impl.dart';
 import 'package:image_search_9day/ui/detail/detail_screen.dart';
 import 'package:image_search_9day/ui/main/main_screen.dart';
 import 'package:image_search_9day/ui/main/main_view_model.dart';
@@ -12,7 +13,9 @@ final GoRouter router = GoRouter(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
         return ChangeNotifierProvider(
-          create: (_) => MainViewModel(),
+          create: (_) => MainViewModel(
+            PixabayPhotoRepositoryImpl(),
+          ),
           child: const MainScreen(),
         );
       },
